@@ -64,17 +64,19 @@ Each skill has placeholder paths like `[vault]/[reflections]/`. Replace these wi
 ├── [reflections]/
 │   ├── [year]-plan/
 │   │   ├── [year]-plan.md           # Annual plan (values, milestones)
-│   │   ├── Q1-[year]-plan.md        # Quarterly plans
-│   │   ├── january-[year].md        # Monthly plans
+│   │   ├── Q1-[year]-plan.md        # Quarterly plans (skill generates these)
+│   │   ├── january-[year].md        # Monthly plans (skill generates these)
 │   │   └── cultural-activities-ideas.md
-│   └── [MM.DD.YY]-[MM.DD.YY].md     # Weekly reflection files
+│   └── [MM.DD.YY]-[MM.DD.YY].md     # Weekly reflection files (skill generates these)
 ├── [templates]/
-│   └── weekly-reflection.md
+│   └── weekly-reflection.md         # Template for weekly files - skill uses this
 └── [writing]/                        # Optional - for content planning
     ├── editorial-calendar.md
     ├── ideas/inbox.md
     └── drafts/
 ```
+
+> **Note:** The skills contain embedded output templates. When you run `/quarterly-plan`, `/monthly-plan`, or `/weekly-plan`, Claude generates the plan files using the format defined in each skill. You don't need separate template files for plans - the skills handle that.
 
 ### 3. Install the skills
 
@@ -132,18 +134,6 @@ What it does:
 - Reality-checks capacity
 - Creates next week's reflection file with priorities at top
 - Flags warning signs (overcommitment, social gaps)
-
----
-
-## Templates
-
-The `/templates` folder includes starter templates for:
-- Annual plan
-- Quarterly plan
-- Monthly plan
-- Weekly reflection (with Week Priorities section)
-
-Customize these to match your system.
 
 ---
 
