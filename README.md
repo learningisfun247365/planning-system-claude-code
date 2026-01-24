@@ -8,7 +8,9 @@ A cascading planning system using Claude Code skills. Annual direction flows to 
 
 ## What This Is
 
-Three Claude Code skills that guide you through planning at different time horizons:
+Five Claude Code skills that guide you through planning and note processing:
+
+### Planning Skills
 
 | Skill | Timing | Duration | Purpose |
 |-------|--------|----------|---------|
@@ -17,6 +19,15 @@ Three Claude Code skills that guide you through planning at different time horiz
 | `/weekly-plan` | Every Sunday | 30-45 min | Surface patterns, plan next week, create reflection file |
 
 **The cascade:** Quarterly sets the focus areas. Monthly books the life stuff. Weekly checks the pulse and creates next week's file with priorities loaded.
+
+### Processing Skills (NEW)
+
+| Skill | Timing | Purpose |
+|-------|--------|---------|
+| `/journal-process` | After voice recording | Clean up voice transcripts, infer structure, append to weekly reflection |
+| `/daily-process` | End of day / weekly | Scan vault for unfiled notes, add metadata, move to correct folders |
+
+**The lesson:** These skills are only useful if they're chained to something you already do. `/daily-process` was built and forgotten for months because it had no trigger. Now it chains from `/weekly-plan` and `/journal-process`.
 
 ---
 
@@ -87,6 +98,8 @@ Copy the skill files to your Claude Code skills directory:
 cp skills/quarterly-plan.md ~/.claude/skills/quarterly-plan.md
 cp skills/monthly-plan.md ~/.claude/skills/monthly-plan.md
 cp skills/weekly-plan.md ~/.claude/skills/weekly-plan.md
+cp skills/journal-process.md ~/.claude/skills/journal-process.md
+cp skills/daily-process.md ~/.claude/skills/daily-process.md
 ```
 
 Or create a project-level `.claude/skills/` folder in your notes directory.
