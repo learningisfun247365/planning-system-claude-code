@@ -2,8 +2,7 @@
 
 A cascading planning system using Claude Code skills. Annual direction flows to quarterly focus, then monthly booking, then weekly intentions.
 
-**Read the full piece:** [Substack article placeholder]
-
+**Read the full piece:** [How I Used Claude Code to Build My Planning System (So I Could Stop Planning)](https://substack.com/home/post/p-184651031)
 ---
 
 ## What This Is
