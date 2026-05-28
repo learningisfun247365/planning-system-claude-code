@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morning Brief — AI + Learning</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" type="application/rss+xml" title="Morning Brief" href="rss.xml">
+</head>
+<body>
+  <header>
+    <h1>Morning Brief</h1>
+    <p class="tagline">AI + Learning — what's changing this morning</p>
+    <p class="date">{{ today_date }}</p>
+    {% if briefing.summary %}<p class="summary">{{ briefing.summary }}</p>{% endif %}
+  </header>
+
+  <main>
+    {% for section_name, items in briefing.sections.items() %}
+      {% if items %}
+      <section>
+        <h2>{{ section_name }}</h2>
+        {% for item in items %}
+        <article>
+          <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+          <p class="source">{{ item.source }}</p>
+          {% if item.take %}<p class="take">{{ item.take }}</p>{% endif %}
+          {% if item.plain_take %}<p class="plain-take"><strong>Plain take:</strong> {{ item.plain_take }}</p>{% endif %}
+        </article>
+        {% endfor %}
+      </section>
+      {% endif %}
+    {% endfor %}
+
+    {% if briefing.spiked %}
+    <div class="spiked">
+      <details>
+        <summary>Spiked today ({{ briefing.spiked|length }})</summary>
+        <ul>
+          {% for s in briefing.spiked %}
+          <li><a href="{{ s.url }}">{{ s.title }}</a> — <em>{{ s.spiked_reason }}</em></li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+    {% endif %}
+  </main>
+
+  {% if archive %}
+  <aside class="archive">
+    <h2>Archive</h2>
+    <ul>
+      {% for entry in archive %}
+      <li><a href="{{ entry.href }}">{{ entry.date }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+
+  <footer>
+    <p>Curated and synthesized daily. Source list and editorial rules in the <a href="https://github.com/learningisfun247365/planning-system-claude-code">repository</a>.</p>
+  </footer>
+</body>
+</html>

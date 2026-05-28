@@ -28,6 +28,14 @@ Five Claude Code skills that guide you through planning and note processing:
 
 **The lesson:** These skills are only useful if they're chained to something you already do. `/daily-process` was built and forgotten for months because it had no trigger. Now it chains from `/weekly-plan` and `/journal-process`.
 
+### Intel Skill (NEW)
+
+| Skill | Timing | Purpose |
+|-------|--------|---------|
+| `/morning-brief` | Daily (auto via cron, manual on demand) | Scan AI + Learning industry sources, synthesize today's signal, publish to website + vault |
+
+The first **outward-facing** piece of this system. See [the Daily Briefing section below](#daily-briefing-morning-brief) for setup.
+
 ---
 
 ## Prerequisites
@@ -183,6 +191,62 @@ Change these to match how you think about your life.
 **What you do:** Make meaning from the patterns, make decisions, do the actual work.
 
 The system doesn't make you more disciplined. It makes discipline irrelevant by externalizing the prompts and triggers.
+
+---
+
+## Daily Briefing (morning-brief)
+
+A daily AI + Learning industry scanner. Pulls RSS + discovery searches every morning, asks Claude to filter and route into themed sections, publishes the result as a static site (GitHub Pages) and writes a markdown copy into your vault when run locally.
+
+### What it covers
+
+Seven editorial sections, calibrated for a constructivist-humanist instructional designer who's technical-non-technical:
+
+1. **Plumbing** — memory, agents, context engineering, MCP, evals (each item gets a plain-language "Plain take" line)
+2. **New Modes of Doing** — AI-native ways of getting employees what they need to know when they need it
+3. **ID Craft** — instructional design as a craft (design thinking, action mapping, evidence-based)
+4. **Org & Talent Design** — how AI-native orgs are restructuring roles and skill ladders
+5. **Steering & Judgment** — critical thinking, evals, parallel-track work, epistemic skepticism
+6. **Cross-Pollination** — borrowings from cog sci, design, neuroscience, complexity, applied to learning
+7. **Cool & Weird** — outliers and building-in-public
+
+Each surviving item gets a one-sentence *take* (not a summary). Spiked items show at the bottom with a reason.
+
+### How it runs
+
+**Automated:** `.github/workflows/morning-brief.yml` runs daily at 11:00 UTC, commits the generated `docs/` files, GitHub Pages auto-publishes.
+
+**Manual:** `/morning-brief` slash command does the same, plus writes a markdown copy to your vault at `[vault]/05 Reflections/[year]-plan/briefings/YYYY-MM-DD.md`.
+
+### Setup
+
+1. **Install Pages**: Repo Settings → Pages → Source: deploy from a branch → `main` / `/docs` folder.
+2. **Add secrets**: Repo Settings → Secrets and variables → Actions:
+   - `ANTHROPIC_API_KEY` (required for synthesis)
+   - `TAVILY_API_KEY` (optional; enables discovery searches beyond RSS)
+3. **Trigger first run**: Actions tab → "Morning Brief" → "Run workflow", or wait for the next 11:00 UTC tick.
+4. **For local manual runs**: set `BRIEF_VAULT_PATH` in your shell, then `/morning-brief`.
+
+### Tuning
+
+- **Sources**: edit `briefing/sources.yml`. Source list balance is intentional — gender + worldview diversity. Hold it when editing.
+- **Editorial voice**: edit `EDITORIAL_SYSTEM_PROMPT` in `briefing/scan.py`. The spiked-list at the bottom of each daily page shows what got filtered and why — use it to tune.
+- **Cron timing**: edit the `cron:` line in `.github/workflows/morning-brief.yml`.
+
+### Files
+
+```
+briefing/
+├── scan.py              # the scanner
+├── sources.yml          # RSS feeds + discovery queries
+├── templates/           # Jinja2 templates + CSS
+└── seen.json            # dedupe state (committed each run)
+docs/                    # generated site (Pages serves this)
+.github/workflows/
+└── morning-brief.yml    # daily cron
+skills/
+└── morning-brief.md     # slash command for manual runs
+```
 
 ---
 

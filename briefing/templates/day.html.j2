@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ date }} — Morning Brief</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <a class="home" href="../index.html">← Today</a>
+    <h1>{{ date }}</h1>
+    {% if briefing.summary %}<p class="summary">{{ briefing.summary }}</p>{% endif %}
+  </header>
+
+  <main>
+    {% for section_name, items in briefing.sections.items() %}
+      {% if items %}
+      <section>
+        <h2>{{ section_name }}</h2>
+        {% for item in items %}
+        <article>
+          <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+          <p class="source">{{ item.source }}</p>
+          {% if item.take %}<p class="take">{{ item.take }}</p>{% endif %}
+          {% if item.plain_take %}<p class="plain-take"><strong>Plain take:</strong> {{ item.plain_take }}</p>{% endif %}
+        </article>
+        {% endfor %}
+      </section>
+      {% endif %}
+    {% endfor %}
+
+    {% if briefing.spiked %}
+    <div class="spiked">
+      <details>
+        <summary>Spiked ({{ briefing.spiked|length }})</summary>
+        <ul>
+          {% for s in briefing.spiked %}
+          <li><a href="{{ s.url }}">{{ s.title }}</a> — <em>{{ s.spiked_reason }}</em></li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p><a href="../index.html">← All briefings</a></p>
+  </footer>
+</body>
+</html>
