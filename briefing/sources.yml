@@ -1,0 +1,107 @@
+# ---------------------------------------------------------------------------
+# Morning Brief — source list
+#
+# EDITORIAL BALANCE IS INTENTIONAL.
+# This list aims for gender balance + worldview diversity:
+#   - builders alongside critics
+#   - optimists alongside skeptics
+#   - practitioners alongside researchers
+# When editing: adding 5 male VC voices and dropping a critic is a regression.
+# Hold the balance.
+#
+# Categories (used to route items into editorial sections, not 1:1):
+#   builders        — engineering/practice voices, the plumbing
+#   research        — papers, labs, internals
+#   id_craft        — instructional design as a craft (not vendors)
+#   org_design      — workforce / org / talent restructuring
+#   criticism       — epistemic counterweight
+#   newsletter      — digests
+#   tech_writing    — documentation, info architecture
+# ---------------------------------------------------------------------------
+
+feeds:
+  # ---- Newsletters / digests -------------------------------------------------
+  - { name: "TLDR AI", url: "https://tldr.tech/api/rss/ai", category: newsletter }
+  - { name: "Import AI (Jack Clark)", url: "https://importai.substack.com/feed", category: newsletter }
+  - { name: "Latent Space (swyx)", url: "https://www.latent.space/feed", category: newsletter }
+  - { name: "One Useful Thing (Ethan Mollick)", url: "https://www.oneusefulthing.org/feed", category: newsletter }
+  - { name: "Pragmatic Engineer", url: "https://newsletter.pragmaticengineer.com/feed", category: newsletter }
+  - { name: "Range Widely (David Epstein)", url: "https://rangewidely.substack.com/feed", category: newsletter }
+
+  # ---- Builders / researchers -----------------------------------------------
+  - { name: "Simon Willison", url: "https://simonwillison.net/atom/everything/", category: builders }
+  - { name: "Andrej Karpathy", url: "https://karpathy.github.io/feed.xml", category: builders }
+  - { name: "Vicki Boykis — Normcore Tech", url: "https://vicki.substack.com/feed", category: builders }
+  - { name: "Shreya Shankar", url: "https://www.sh-reya.com/blog/rss.xml", category: builders }
+  - { name: "Melanie Mitchell — AI: A Guide for Thinking Humans", url: "https://aiguide.substack.com/feed", category: research }
+  - { name: "Rachel Thomas (fast.ai)", url: "https://rachel.fast.ai/atom.xml", category: builders }
+  - { name: "Lilian Weng", url: "https://lilianweng.github.io/index.xml", category: research }
+  - { name: "Nathan Lambert — Interconnects", url: "https://www.interconnects.ai/feed", category: research }
+  - { name: "Hamel Husain", url: "https://hamel.dev/index.xml", category: builders }
+  - { name: "Eugene Yan", url: "https://eugeneyan.com/rss/", category: builders }
+  - { name: "Chip Huyen", url: "https://huyenchip.com/feed.xml", category: builders }
+  - { name: "fast.ai", url: "https://www.fast.ai/atom.xml", category: builders }
+  - { name: "Linus Lee (thesephist)", url: "https://thesephist.com/feed.xml", category: builders }
+  - { name: "Geoffrey Litt", url: "https://www.geoffreylitt.com/feed.xml", category: builders }
+  - { name: "Maggie Appleton", url: "https://maggieappleton.com/rss.xml", category: builders }
+  - { name: "Robin Sloan", url: "https://www.robinsloan.com/feed/", category: builders }
+  - { name: "Annie Murphy Paul", url: "https://anniemurphypaul.substack.com/feed", category: research }
+
+  # ---- AI criticism & accountability ----------------------------------------
+  - { name: "Molly White — Citation Needed", url: "https://www.citationneeded.news/rss/", category: criticism }
+  - { name: "Sayash Kapoor — AI Snake Oil", url: "https://www.aisnakeoil.com/feed", category: criticism }
+  - { name: "Abeba Birhane", url: "https://abebabirhane.com/feed/", category: criticism }
+
+  # ---- Lab / company research blogs -----------------------------------------
+  - { name: "Anthropic — News", url: "https://www.anthropic.com/news/rss.xml", category: research }
+  - { name: "Anthropic — Transformer Circuits", url: "https://transformer-circuits.pub/rss.xml", category: research }
+  - { name: "OpenAI Blog", url: "https://openai.com/blog/rss.xml", category: research }
+  - { name: "Google DeepMind", url: "https://deepmind.google/blog/rss.xml", category: research }
+  - { name: "Hugging Face Blog", url: "https://huggingface.co/blog/feed.xml", category: builders }
+  - { name: "LangChain Blog", url: "https://blog.langchain.dev/rss/", category: builders }
+  - { name: "LlamaIndex Blog", url: "https://www.llamaindex.ai/blog/rss.xml", category: builders }
+  - { name: "Replit Blog", url: "https://blog.replit.com/rss.xml", category: builders }
+
+  # ---- ID craft (practitioners, not vendors) --------------------------------
+  - { name: "Philippa Hardman", url: "https://drphilippahardman.substack.com/feed", category: id_craft }
+  - { name: "Cathy Moore — Action Mapping", url: "https://blog.cathy-moore.com/feed/", category: id_craft }
+  - { name: "Julie Dirksen — Usable Learning", url: "https://www.usablelearning.com/feed/", category: id_craft }
+  - { name: "Christy Tucker — Experiencing eLearning", url: "https://christytuckerlearning.com/feed/", category: id_craft }
+  - { name: "Will Thalheimer — Work-Learning Research", url: "https://www.worklearning.com/feed/", category: id_craft }
+  - { name: "3-Star Learning Experiences (Neelen & Kirschner)", url: "https://3starlearningexperiences.wordpress.com/feed/", category: id_craft }
+  - { name: "Jane Hart — Modern Workplace Learning", url: "https://www.modernworkplacelearning.com/cild/feed/", category: id_craft }
+  - { name: "Clark Quinn — Learnlets", url: "https://blog.learnlets.net/?feed=rss2", category: id_craft }
+  - { name: "Anne-Laure Le Cunff — Ness Labs", url: "https://nesslabs.com/feed", category: id_craft }
+
+  # ---- Technical writing / documentation ------------------------------------
+  - { name: "Tom Johnson — I'd Rather Be Writing", url: "https://idratherbewriting.com/feed.xml", category: tech_writing }
+
+  # ---- Org / talent design (mechanism, not McKinsey) ------------------------
+  - { name: "Charter", url: "https://charterworks.com/feed/", category: org_design }
+  - { name: "Lenny's Newsletter", url: "https://www.lennysnewsletter.com/feed", category: org_design }
+  - { name: "Laëtitia Vitaud", url: "https://laetitiaatwork.substack.com/feed", category: org_design }
+  - { name: "Jessica Kerr (Jessitron)", url: "https://jessitron.com/feed/", category: org_design }
+  - { name: "First Round Review", url: "https://review.firstround.com/feed", category: org_design }
+  - { name: "a16z", url: "https://a16z.com/feed/", category: org_design }
+
+  # ---- Academic / research --------------------------------------------------
+  - { name: "arXiv cs.CY (Computers & Society)", url: "http://export.arxiv.org/rss/cs.CY", category: research }
+  - { name: "arXiv cs.HC (Human-Computer Interaction)", url: "http://export.arxiv.org/rss/cs.HC", category: research }
+  - { name: "arXiv cs.MA (Multi-Agent Systems)", url: "http://export.arxiv.org/rss/cs.MA", category: research }
+  - { name: "MIT Sloan Management Review", url: "https://sloanreview.mit.edu/feed/", category: org_design }
+  - { name: "AI at Wharton", url: "https://ai.wharton.upenn.edu/feed/", category: research }
+
+discovery_queries:
+  - "agentic learning workforce"
+  - "LLM memory context engineering"
+  - "parallel agents orchestration"
+  - '"AI-native" company onboarding OR upskilling'
+  - "Karpathy LLM education"
+  - "evals judgment AI workflow"
+  - "cognitive science generative AI learning"
+  - "instructional design AI build cycle"
+  - "org design AI roles workforce restructure"
+  - "LLM evals failure modes"
+  - "technical writing documentation AI"
+  # One slot for a rotating "weird" query — change periodically:
+  - "agents art OR design experiment"
